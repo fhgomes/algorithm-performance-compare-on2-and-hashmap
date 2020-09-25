@@ -1,0 +1,16 @@
+apply plugin: 'org.sonarqube'
+
+sonarqube {
+	properties {
+		property "sonar.sourceEncoding", "UTF-8"
+		property "sonar.java.binaries", "${project.buildDir}/classes/kotlin"
+		property "sonar.dynamicAnalysis", "reuseReports"
+		property "sonar.java.coveragePlugin", "jacoco"
+		property "sonar.jacoco.reportPaths", "${project.buildDir}/jacoco/test.exec"
+		property "sonar.report.export.path", "${project.buildDir}/sonar-report.json"
+		property "sonar.junit.reportsPath", "${project.buildDir}/test-results/test"
+		property "sonar.surefire.reportsPath", "${project.buildDir}/test-results/test"
+		property "sonar.verbose", false
+		property "sonar.host.url", "http://localhost"
+	}
+}
